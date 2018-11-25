@@ -1,0 +1,8 @@
+body{
+    background-image: url("../images/blackmamba.png");
+}
+
+.card-img-top{
+    height: 200px;
+    width: auto;
+}

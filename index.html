@@ -80,25 +80,25 @@
             <div class="card">
                 <img class="card-img-top black-crystal-image" src="assets/images/black-crystal.jpg" alt="Black Crystal">
                 <div class="card-body">
-                    <h5 class="card-title text-center black-crystal-value"></h5>
+                    <h5 class="card-title text-center crystal-value black-crystal-value"></h5>
                 </div>
             </div>
             <div class="card">
                 <img class="card-img-top blue-crystal-image" src="assets/images/blue-crystal.jpg" alt="Blue Crystal">
                 <div class="card-body">
-                    <h5 class="card-title text-center blue-crystal-value"></h5>
+                    <h5 class="card-title text-center crystal-value blue-crystal-value"></h5>
                 </div>
             </div>
             <div class="card">
                 <img class="card-img-top green-crystal-image" src="assets/images/green-crystal.jpg" alt="Green Crystal">
                 <div class="card-body">
-                    <h5 class="card-title text-center green-crystal-value"></h5>
+                    <h5 class="card-title text-center crystal-value green-crystal-value"></h5>
                 </div>
             </div>
             <div class="card">
                 <img class="card-img-top red-crystal-image" src="assets/images/red-crystal.jpg" alt="Red Crystal">
                 <div class="card-body">
-                    <h5 class="card-title text-center green-crystal-value"></h5>
+                    <h5 class="card-title text-center crystal-value green-crystal-value"></h5>
                 </div>
             </div>
         </div>
@@ -138,6 +138,20 @@
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
+        //Function that restarts the game
+        function restartGame() {
+            userScore = 0;
+            $("#game-user-score").text(userScore);
+            magicNumber = createMagicNumber(minMagicNumber, maxMagicNumber);
+            $("#game-magic-number").text(magicNumber);
+            blackCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
+            blueCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
+            greenCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
+            redCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
+            
+
+        }
+
 
         $("#game-magic-number").text(magicNumber);
         $("#game-win-total").text(winTotal);
@@ -149,26 +163,69 @@
             userScore += blackCrystalNumber;
             $("#game-user-score").text(userScore);
             $(".black-crystal-value").text(blackCrystalNumber);
+            if (userScore === magicNumber) {
+                alert("You have won!");
+                winTotal++;
+                $("#game-win-total").text(winTotal);
+                restartGame();
+            } else if (userScore > magicNumber) {
+                alert("You have lost!");
+                lossTotal++;
+                $("game-loss-total").text(lossTotal);
+                restartgame();
+            }
         });
 
         $(".blue-crystal-image").on("click", function () {
             userScore += blueCrystalNumber;
             $("#game-user-score").text(userScore);
             $(".blue-crystal-value").text(blueCrystalNumber);
+            if (userScore === magicNumber) {
+                alert("You have won!");
+                winTotal++;
+                $("#game-win-total").text(winTotal);
+                restartGame();
+            } else if (userScore > magicNumber) {
+                alert("You have lost!");
+                lossTotal++;
+                $("game-loss-total").text(lossTotal);
+                restartgame();
+            }
         });
 
         $(".green-crystal-image").on("click", function () {
             userScore += greenCrystalNumber;
             $("#game-user-score").text(userScore);
             $(".green-crystal-value").text(greenCrystalNumber);
+            if (userScore === magicNumber) {
+                alert("You have won!");
+                winTotal++;
+                $("#game-win-total").text(winTotal);
+                restartGame();
+            } else if (userScore > magicNumber) {
+                alert("You have lost!");
+                lossTotal++;
+                $("game-loss-total").text(lossTotal);
+                restartgame();
+            }
         });
 
         $(".red-crystal-image").on("click", function () {
             userScore += redCrystalNumber;
             $("#game-user-score").text(userScore);
             $(".red-crystal-value").text(redCrystalNumber);
+            if (userScore === magicNumber) {
+                alert("You have won!");
+                winTotal++;
+                $("#game-win-total").text(winTotal);
+                restartGame();
+            } else if (userScore > magicNumber) {
+                alert("You have lost!");
+                lossTotal++;
+                $("game-loss-total").text(lossTotal);
+                restartgame();
+            }
         });
-
 
 
 

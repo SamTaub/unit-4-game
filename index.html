@@ -98,7 +98,7 @@
             <div class="card">
                 <img class="card-img-top red-crystal-image" src="assets/images/red-crystal.jpg" alt="Red Crystal">
                 <div class="card-body">
-                    <h5 class="card-title text-center crystal-value green-crystal-value"></h5>
+                    <h5 class="card-title text-center crystal-value red-crystal-value"></h5>
                 </div>
             </div>
         </div>
@@ -148,17 +148,19 @@
             blueCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
             greenCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
             redCrystalNumber = createCrystalNumber(minCrystalNumber, maxCrystalNumber);
-            
-
+            $(".crystal-value").text(" ");
         }
 
-
+        //Populates the statistics at the start of the game
         $("#game-magic-number").text(magicNumber);
         $("#game-win-total").text(winTotal);
         $("#game-loss-total").text(lossTotal);
         $("#game-user-score").text(userScore);
 
 
+        //On click, adds the crystal value to the total score
+        //Checks to see if number matches or goes over magic number
+        //Produces Win/Loss alert and adds to counter accordingly
         $(".black-crystal-image").on("click", function () {
             userScore += blackCrystalNumber;
             $("#game-user-score").text(userScore);
@@ -171,8 +173,8 @@
             } else if (userScore > magicNumber) {
                 alert("You have lost!");
                 lossTotal++;
-                $("game-loss-total").text(lossTotal);
-                restartgame();
+                $("#game-loss-total").text(lossTotal);
+                restartGame();
             }
         });
 
@@ -188,8 +190,8 @@
             } else if (userScore > magicNumber) {
                 alert("You have lost!");
                 lossTotal++;
-                $("game-loss-total").text(lossTotal);
-                restartgame();
+                $("#game-loss-total").text(lossTotal);
+                restartGame();
             }
         });
 
@@ -205,8 +207,8 @@
             } else if (userScore > magicNumber) {
                 alert("You have lost!");
                 lossTotal++;
-                $("game-loss-total").text(lossTotal);
-                restartgame();
+                $("#game-loss-total").text(lossTotal);
+                restartGame();
             }
         });
 
@@ -222,8 +224,8 @@
             } else if (userScore > magicNumber) {
                 alert("You have lost!");
                 lossTotal++;
-                $("game-loss-total").text(lossTotal);
-                restartgame();
+                $("#game-loss-total").text(lossTotal);
+                restartGame();
             }
         });
 
